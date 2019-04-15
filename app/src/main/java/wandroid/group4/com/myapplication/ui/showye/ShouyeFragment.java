@@ -3,6 +3,7 @@ package wandroid.group4.com.myapplication.ui.showye;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +45,12 @@ public class ShouyeFragment extends BaseFragment<IndexPresenter> implements Inde
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bann(mStringList);
+    }
+
+    @Override
     protected IndexPresenter createPresenter() {
         return new IndexPresenter();
     }
@@ -63,10 +70,7 @@ public class ShouyeFragment extends BaseFragment<IndexPresenter> implements Inde
         List<Index.DataBean.BannerBean> banner = index.getData().getBanner();
         for (int i=0 ;i<banner.size();i++){
             mStringList.add(banner.get(i).getImage_url());
-            Log.e("aaa", "showindex: "+banner.get(0).getImage_url());
         }
-        Log.e("aaa", "showindexaxxxx: "+mStringList.size() );
-        bann(mStringList);
     }
 
     public void bann(List<String> list) {
@@ -110,4 +114,6 @@ public class ShouyeFragment extends BaseFragment<IndexPresenter> implements Inde
                     .into(imageView);
         }
     }
+
+
 }

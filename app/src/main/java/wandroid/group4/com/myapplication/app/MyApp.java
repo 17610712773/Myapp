@@ -20,7 +20,7 @@ import android.content.res.Resources;
  * 永远不要哭啼，永远不要说再见，永远不要说谎来伤害自己。
  */
 public class MyApp extends Application {
-     
+
 
     public static MyApp myApp;
 
